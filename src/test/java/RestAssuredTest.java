@@ -7,11 +7,14 @@ import static org.hamcrest.Matchers.*;
 public class RestAssuredTest {
 
     public String host1 = "http://www.interia.pl";
+
     public String host2 = "https://ipinfo.io/8.8.8.8";
 
     @Test
     public void firstTest(){
-        given().when().get(host1).then().statusCode(200);
+        given().when()
+                .get(host1).then().assertThat()
+                .statusCode(200);
     }
 
     @Test
