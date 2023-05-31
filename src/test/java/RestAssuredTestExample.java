@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.containsStringIgnoringCase;
+import static org.hamcrest.Matchers.equalTo;
 
 public class RestAssuredTestExample {
 
@@ -15,12 +16,16 @@ public class RestAssuredTestExample {
     }
 
     @Test
-    public void SecondTest(){
+    public void secondTest(){
         given().contentType(ContentType.JSON).when()
                 .get(host2).then().assertThat()
                 .body("region", containsStringIgnoringCase("california"));
+    }
 
-
-
+    @Test
+    public void thirdTest(){
+        given().contentType(ContentType.JSON).when()
+                .get(host2).then().assertThat()
+                .body("region", equalTo("California"));
     }
 }
