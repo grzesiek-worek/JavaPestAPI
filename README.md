@@ -2,4 +2,4 @@
 
 ### full description of the project will be added later
 
-Java Rest Api, Rest Assured Test
+Java Rest Api, Rest Assured Test, Junit, TestNG
