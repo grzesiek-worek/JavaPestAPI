@@ -1,11 +1,10 @@
-import com.sun.net.httpserver.Request;
 import io.restassured.RestAssured;
 import io.restassured.http.Method;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
 
-public class RestAssuredAPITest {
+public class RestAssured_RestAPITest {
 
     @Test
     public void GetBooksDetails(){

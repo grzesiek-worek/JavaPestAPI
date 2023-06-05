@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.*;
 
-public class RestAssuredTest {
+public class RestAssured_ExampleTest {
 
     public String host1 = "http://www.interia.pl";
 

@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.testng.Assert;
 
 
-public class RestAssuredTestResponse {
+public class RestAssured_ResponseStatusTest {
     @Test
     public void GetBookDetails()
     {
