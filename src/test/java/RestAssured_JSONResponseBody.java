@@ -3,6 +3,7 @@ import io.restassured.response.Response;
 import io.restassured.response.ResponseBody;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
+import org.testng.Assert;
 
 
 public class RestAssured_JSONResponseBody {
@@ -15,9 +16,9 @@ public class RestAssured_JSONResponseBody {
 
         ResponseBody body = response.getBody();
 
-        System.out.println("Response Body is: " + body.asString());
+        // System.out.println("Response Body is: " + body.asString());
 
-
+        String bodyAsString = body.asString();
+        Assert.assertEquals(bodyAsString.toLowerCase().contains("86.10.4.126") , true , "Response body contains IP: 86.10.4.126");
     }
-
 }
