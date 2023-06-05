@@ -12,10 +12,13 @@ public class RestAssuredTestResponse {
         RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Books";
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get("");
-        int statusCode = response.getStatusCode();
 
+        int statusCode = response.getStatusCode();
         System.out.println(statusCode);
         Assert.assertEquals(statusCode , 200 , "Correct status code returned");
 
+        String statusLine = response.getStatusLine();
+        System.out.println(statusLine);
+        Assert.assertEquals(statusLine, "HTTP/1.1 200 OK", "Correct status line returned");
     }
 }
