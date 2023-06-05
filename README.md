@@ -1,4 +1,4 @@
-# JavaPestAPI - project in progress ..
+# JavaRestAPI - Rest Assured - project in progress ..
 
 ### full description of the project will be added later
 
