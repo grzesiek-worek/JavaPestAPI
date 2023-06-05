@@ -4,16 +4,17 @@ import io.restassured.http.Headers;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import org.junit.jupiter.api.Test;
+import org.testng.Assert;
 
 public class RestAssured_ResponseHeader {
 
     @Test
-    public void IteratingHeaders()
-    { RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Books";
+    public void IteratingHeaders() {
+        RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Books";
         RequestSpecification httpRequest = RestAssured.given();
         Response response = httpRequest.get("");
         Headers allHeaders = response.headers();
-        for(Header header : allHeaders) {
+        for (Header header : allHeaders) {
             System.out.println("Key: " + header.getName() + " Value: " + header.getValue());
         }
     }
@@ -29,6 +30,19 @@ public class RestAssured_ResponseHeader {
         System.out.println("Server value: " + serverType);
         String acceptLanguage = response.header("Content-Encoding");
         System.out.println("Content-Encoding: " + acceptLanguage);
+    }
+
+    @Test
+    public void ValidateBookHeaders() {
+        RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Books";
+        RequestSpecification httpRequest = RestAssured.given();
+        Response response = httpRequest.get("");
+        String contentType = response.header("Content-Type");
+        //System.out.println(contentType);
+        Assert.assertEquals(contentType, "application/json; charset=utf-8");
+        String serverType = response.header("Server");
+        //System.out.println(serverType);
+        Assert.assertEquals(serverType, "nginx/1.17.10 (Ubuntu)");
     }
 }
 
