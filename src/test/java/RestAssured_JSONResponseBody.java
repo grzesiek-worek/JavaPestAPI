@@ -35,4 +35,18 @@ public class RestAssured_JSONResponseBody {
         System.out.println("Region received from Response " + region);
         Assert.assertEquals(region, "England", "Correct region name received in the Response");
     }
+
+    @Test
+    public void DisplayFewNodesInIPInfoAPI()
+    {
+        RestAssured.baseURI = "https://ipinfo.io/";
+        RequestSpecification httpRequest = RestAssured.given();
+        Response response = httpRequest.get("86.10.4.126");
+
+        JsonPath jsonPathEvaluator = response.jsonPath();
+        System.out.println("IP received from Response " + jsonPathEvaluator.get("ip"));
+        System.out.println("City received from Response " + jsonPathEvaluator.get("city"));
+        System.out.println("Region received from Response " + jsonPathEvaluator.get("region"));
+        System.out.println("Timezone description received from Response " + jsonPathEvaluator.get("timezone"));
+    }
 }
