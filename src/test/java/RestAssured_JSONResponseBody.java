@@ -16,9 +16,9 @@ public class RestAssured_JSONResponseBody {
 
         ResponseBody body = response.getBody();
 
-        // System.out.println("Response Body is: " + body.asString());
+        System.out.println("Response Body is: " + body.asString());
 
         String bodyAsString = body.asString();
-        Assert.assertEquals(bodyAsString.toLowerCase().contains("86.10.4.126") , true , "Response body contains IP: 86.10.4.126");
+        Assert.assertEquals(bodyAsString.toLowerCase().contains("acklam") , true , "Response body contains Acklam");
     }
 }
