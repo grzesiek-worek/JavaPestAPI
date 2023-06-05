@@ -17,4 +17,18 @@ public class RestAssured_ResponseHeader {
             System.out.println("Key: " + header.getName() + " Value: " + header.getValue());
         }
     }
+
+    @Test
+    public void GetBookHeaders() {
+        RestAssured.baseURI = "https://demoqa.com/BookStore/v1/Books";
+        RequestSpecification httpRequest = RestAssured.given();
+        Response response = httpRequest.get("");
+        String contentType = response.header("Content-Type");
+        System.out.println("Content-Type value: " + contentType);
+        String serverType = response.header("Server");
+        System.out.println("Server value: " + serverType);
+        String acceptLanguage = response.header("Content-Encoding");
+        System.out.println("Content-Encoding: " + acceptLanguage);
+    }
 }
+
